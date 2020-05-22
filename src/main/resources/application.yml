@@ -1,0 +1,24 @@
+endpoints:
+  routes:
+    sensitive: false
+
+ribbon:
+  eureka:
+    enabled: false
+
+zuul:
+  sslHostnameValidationEnabled: false
+  routes:
+    app-api:
+      path: /api/v1/**
+      url: https://webgate.acceptance.host.eu/app-api/api/v1
+    app-public:
+      path: /api/pubapp/**
+      url: https://webgate.acceptance.host.eu/app-public/api/pubapp
+
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: info
+    com.netflix: debug
